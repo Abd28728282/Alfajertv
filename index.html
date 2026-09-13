@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <!-- الوسم المسؤول عن ضبط الصفحة لتناسب شاشات الهواتف -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بث مباشر - Video.js</title>
-  <!-- ملفات Video.js الرسمية والأساسية فقط -->
+  
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
+  <style>
+    /* جعل المشغل متجاوباً بالكامل 100% مع عرض الشاشة */
+    .video-container {
+      width: 100%;
+      max-width: 800px; /* يمكن تعديل الحد الأقصى للعرض حسب الرغبة */
+      margin: 0 auto;
+    }
+    .video-js {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9; /* الحفاظ على أبعاد الفيديو القياسية */
+    }
+  </style>
 </head>
 <body>
 
-  <!-- المشغل بالواجهة القياسية الأصلية (controls) -->
-  <video
-    id="my-video"
-    class="video-js vjs-default-skin"
-    controls
-    preload="auto"
-    width="640"
-    height="360"
-    data-setup="{}">
-    <source src="https://e2.alfajertv.com/hls/ftv1_720p/index.m3u8?md5=3JEzP8umoJFE9TTIjm9jRA&expires=1789292055" type="application/x-mpegURL">
-  </video>
+  <div class="video-container">
+    <!-- إضافة فئة vjs-fluid تجعل المشغل يتكيف تلقائياً -->
+    <video
+      id="my-video"
+      class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+      controls
+      preload="auto"
+      data-setup="{}">
+      <source src="https://e2.alfajertv.com/hls/ftv1_720p/index.m3u8?md5=3JEzP8umoJFE9TTIjm9jRA&expires=1789292055" type="application/x-mpegURL">
+    </video>
+  </div>
 
-  <!-- سكربت Video.js الرسمي -->
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
 </body>
